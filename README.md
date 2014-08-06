@@ -1,6 +1,8 @@
 todomvc-kathinka-angular
 ============
 
+[![build status][travis-image]][travis-url]
+
 ## Development
 
 To start developing in the project run:
@@ -42,3 +44,6 @@ gulp dist
 ```
 
 Now there's a `./dist` folder with all scripts and stylesheets concatenated and minified, also third party libraries installed with bower will be concatenated and minified into `vendors.min.js` and `vendors.min.css` respectively.
+
+[travis-image]: https://api.travis-ci.org/Wercajk/todomvc-kathinka-angular.svg
+[travis-url]: https://travis-ci.org/Wercajk/todomvc-kathinka-angular
