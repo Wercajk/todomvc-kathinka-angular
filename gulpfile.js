@@ -182,7 +182,7 @@ gulp.task('lint', ['jshint', 'csslint']);
 /**
  * Test
  */
-gulp.task('test', ['templates'], function () {
+gulp.task('test', ['build-all'], function () {
   return testFiles()
     .pipe(g.karma({
       configFile: 'karma.conf.js',
