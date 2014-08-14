@@ -1,20 +1,17 @@
 angular
   .module 'todomvcKathinkaAngular.todo'
-  .controller 'TodoCtrl', ($scope, $window) ->
+  .factory 'Todo', ($restmod) ->
+      return $restmod.model 'http://kathinka.apiary-mock.com/todos'
+  .controller 'TodoCtrl', ($scope, $window, Todo) ->
     'use strict'
-    $scope.todos = JSON.parse($window.localStorage.getItem('todos') or '[]')
-    $scope.$watch('todos', (newTodos, oldTodos) ->
-      if (newTodos != oldTodos)
-        $window.localStorage.setItem 'todos', JSON.stringify(angular.copy($scope.todos))
-    , true)
+
+    # Get all todos
+    $scope.todos = Todo.$search()
 
     $scope.add = ->
-      todo = 
-        label: $scope.label
-        isDone: false
-      $scope.todos.push(todo)
-      $window.localStorage.setItem 'todos', JSON.stringify(angular.copy($scope.todos))
-      $scope.label = ''
+      Todo.$create label: $scope.label
 
     $scope.check = ->
-      @todo.isDone = not @todo.isDone
+      todo = Todo.$find @todo.label
+      todo.isDone = not @todo.isDone
+      todo.$save()

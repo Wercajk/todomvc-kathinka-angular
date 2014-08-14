@@ -11,8 +11,8 @@ describe 'TodoCtrl', ->
       $injector.get('$controller')('TodoCtrl', $scope:scope)
 
   it 'should add new todos on add()', ->
-    todo = 
-      label: 'A new todo'
+    todo =
+      label: 'bread'
       isDone: false
     todoCtrl()
     scope.label = todo.label

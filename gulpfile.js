@@ -155,7 +155,7 @@ gulp.task('watch', ['statics', 'default'], function () {
   isWatching = true;
   // Initiate livereload server:
   g.livereload.listen();
-  gulp.watch('./src/app/**/*.js', ['jshint']).on('change', function (evt) {
+  gulp.watch('./src/app/**/*.coffee', ['coffee']).on('change', function (evt) {
     if (evt.type !== 'changed') {
       gulp.start('index');
     }
