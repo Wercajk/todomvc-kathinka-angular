@@ -1,7 +1,7 @@
 angular
   .module 'todomvcKathinkaAngular.todo'
-  .factory 'Todo', ($restmod) ->
-      return $restmod.model 'http://kathinka.apiary-mock.com/todos'
+  .factory 'Todo', ($restmod, $rootScope) ->
+    $restmod.model $rootScope.apiURL + 'todos'
   .controller 'TodoCtrl', ($scope, $window, Todo) ->
     'use strict'
 
@@ -9,9 +9,12 @@ angular
     $scope.todos = Todo.$search()
 
     $scope.add = ->
-      Todo.$create label: $scope.label
+      Todo.$create
+        label: $scope.label
+        isDone: $scope.isDone
+
 
     $scope.check = ->
-      todo = Todo.$find @todo.label
-      todo.isDone = not @todo.isDone
-      todo.$save()
+      checkedTodo = Todo.$find $scope.todo.label
+      checkedTodo.isDone = $scope.todo.isDone
+      checkedTodo.$save()
