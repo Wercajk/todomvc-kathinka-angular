@@ -2,7 +2,7 @@
 'use strict';
 
 var gulp = require('gulp'),
-    g = require('gulp-load-plugins')({lazy: false}),
+    g = require('gulp-load-plugins')({ lazy: false }),
     noop = g.util.noop,
     es = require('event-stream'),
     bowerFiles = require('main-bower-files'),
@@ -91,7 +91,7 @@ gulp.task('coffee', function () {
  */
 gulp.task('scripts-dist', [ 'templates-dist' ], function () {
 
-  return appFiles().pipe(dist('js', bower.name, {ngAnnotate: true}));
+  return appFiles().pipe(dist('js', bower.name, { ngAnnotate: true }));
 
 });
 
@@ -359,5 +359,5 @@ function jshint (jshintfile) {
   return lazypipe()
     .pipe(g.jshint, jshintfile)
     .pipe(g.jshint.reporter, stylish)();
-    
+
 }
