@@ -1,7 +1,7 @@
 angular
   .module 'todomvcKathinkaAngular.todo'
-  .factory 'Todo', ($restmod, $rootScope) ->
-    $restmod.model $rootScope.apiURL + 'todos'
+  .factory 'Todo', (restmod, $rootScope) ->
+    restmod.model $rootScope.apiURL + 'todos'
   .controller 'TodoCtrl', ($scope, $window, Todo) ->
     'use strict'
 

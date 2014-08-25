@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "gulp watch",
-    "test": "./node_modules/karma/bin/karma start --single-run --browsers PhantomJS"
+    "test": "gulp test"
   },
   "dependencies": {
   },
