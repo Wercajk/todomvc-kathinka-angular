@@ -1,5 +1,7 @@
+module.exports = function( karma ) {
 
-module.exports = function ( karma ) {
+  'use strict';
+
   process.env.PHANTOMJS_BIN = 'node_modules/karma-phantomjs-launcher/node_modules/.bin/phantomjs';
 
   karma.set({
@@ -12,15 +14,17 @@ module.exports = function ( karma ) {
      * Filled by the task `gulp karma-conf`
      */
     files: [
-                    'bower_components/angular/angular.js',
-                    'bower_components/angular-route/angular-route.js',
-                    'bower_components/angular-mocks/angular-mocks.js',
-                    '.tmp/src/app/todo/todo-controller.js',
-                    '.tmp/src/app/todo/todo.js',
-                    '.tmp/todomvc-kathinka-angular-templates.js',
-                    '.tmp/src/app/app.js',
-                    '.tmp/src/app/todo/todo-controller_test.js'
-                  ],
+      'bower_components/angular/angular.js',
+      'bower_components/angular/angular-inflector.js',
+      'bower_components/angular/angular-restmod.js',
+      'bower_components/angular-route/angular-route.js',
+      'bower_components/angular-mocks/angular-mocks.js',
+      '.tmp/src/app/todo/todo-controller.js',
+      '.tmp/src/app/todo/todo.js',
+      '.tmp/todomvc-kathinka-angular-templates.js',
+      '.tmp/src/app/app.js',
+      '.tmp/src/app/todo/todo-controller_test.js'
+    ],
 
     frameworks: [ 'mocha', 'chai' ],
     plugins: [ 'karma-mocha', 'karma-chai', 'karma-phantomjs-launcher' ],
@@ -65,4 +69,5 @@ module.exports = function ( karma ) {
       'PhantomJS'
     ]
   });
+
 };
